@@ -1,0 +1,14 @@
+1. INICIAR EL REPOSITORIO LOCAL
+    git init
+
+2. ENLAZAR CON REPOSITORIO REMOTO
+    git remote add origin git@github.com:NelsonRamirezC/m10-proyecto-python.git
+
+3. VERIFICAR SI QUEDÓ ENLAZADO EL REPOSITORIO REMOTO
+    git remote -v
+
+4. CAMBIAR A RAMA MAIN 
+    git branch -M main
+
+5. AGREGAR CAMBIOS DEL PROYECTO AL ÁREA DE PREPARACIÓN STAGE AGREGAR
+    git add .
