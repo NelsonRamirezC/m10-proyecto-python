@@ -12,3 +12,15 @@
 
 5. AGREGAR CAMBIOS DEL PROYECTO AL ÁREA DE PREPARACIÓN STAGE AGREGAR
     git add .
+
+6. VERSIONAR DE FORMA LOCAL EL PROYECTO CON LOS ARCHIVOS SELECCIONADOS
+    git commit -m "Agregando archivos .csv para iniciar proyecto de python"
+
+7. SUBIR LA VERSIÓN LOCAL AL REPOSITORIO REMOTO (EN LA NUBE)
+    git push origin main
+
+
+8. PASOS QUE SE REPITEN
+    git add .
+    git commit -m "mensaje"
+    git push origin main
