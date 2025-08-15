@@ -92,7 +92,7 @@ plt.close()
 # gráficos de ventas por vendedor
 plt.figure(figsize=(10,5))
 
-plt.barh(ventas_por_vendedor["vendedor"], ventas_por_vendedor["monto"], color="skyblue")
+plt.barh(ventas_por_vendedor["vendedor"], ventas_por_vendedor["monto"], color="orange")
 plt.xlabel("Total ventas por vendedor")
 plt.ylabel("Vendedor")
 plt.title("Ventas por vendedor")
@@ -143,5 +143,22 @@ dibujar_tabla("Monto Vendido por Vendedor", ventas_por_vendedor, "vendedor")
 
 
 
+# agregar gráficos al reporte
+pdf.add_page()
+pdf.set_font("Arial", size=14, style="B")
+pdf.cell(200, 10, "Gráfico: Ventas por empresa", ln=True, align="C")
+pdf.image("Ventas_por_empresa.png", x=25, w=150)
+
+pdf.ln(10)
+
+pdf.cell(200, 10, "Gráfico: Ventas por vendedor", ln=True, align="C")
+pdf.image("Ventas_por_vendedor.png", x=25, w=150)
+pdf.ln(10)
+
+
+
+
 # IMPRIMIR DOCUMENTO PDF
 pdf.output("reporte_ventas.pdf")
+        
+        
