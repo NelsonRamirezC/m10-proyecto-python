@@ -5,7 +5,7 @@ from thefuzz import fuzz, process
 
 # Definir el directorio de trabajo (lugar en el cual se encuentran los archivos)
 
-directorio = r"C:\curso_analisis_datos\m10\proyecto"
+directorio = r"C:\curso_analisis_datos\m10\m10-proyecto-python"
 
 os.chdir(directorio)
 
@@ -23,6 +23,7 @@ df_vendedores = pd.read_csv("Vendedores.csv")
 # Limpiar nombres de empresas
 
 df_ventas["empresa"] = df_ventas["empresa"].str.lower().str.strip()
+
 df_vendedores["empresa"] = df_vendedores["empresa"].str.lower().str.strip()
 
 def encontrar_mejor_match(nombre, lista_empresas):
@@ -49,7 +50,7 @@ df_final.rename(columns={"empresa_x": "empresa_original"}, inplace=True)
 
 df_sin_match = df_final[df_final["empresa_corregida"].isna()]
 
-print(df_sin_match.head())
+# print(df_sin_match.head())
 
 
 # guardar los reportes de los 2 dataframes
@@ -59,5 +60,21 @@ df_final.to_csv("resultados_cruce.csv", index=False)
 df_sin_match.to_csv("registros_sin_cruce.csv", index=False)
 
 
-# PENDIENTE SEGUNDA ETAPA DE LIMPIEZA DE DATOS
+# SEGUNDA ETAPA
+
+import matplotlib.pyplot as plt
+from fpdf import FPDF
+from datetime import datetime
+
+
+# Ventas por empresa
+
+ventas_por_empresa = df_final.groupby("empresa_corregida")["monto"].sum().reset_index()
+
+ventas_por_empresa.sort_values(by="monto", ascending=False, inplace=True)
+
+
+ventas_por_vendedor= df_final.groupby("vendedor")["monto"].sum().reset_index()
+
+ventas_por_vendedor.sort_values(by="monto", ascending=False, inplace=True)
 
